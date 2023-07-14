@@ -7,13 +7,13 @@ sudo apt update -y
 sudo apt upgrade -y
 
 echo "Install awesome(window system)..."
-sudo apt install lightdm awesome -y
+sudo apt install --no-install-recommends lightdm awesome -y
 
 echo "Install basic softwears..."
-sudo apt install wget gpg fzf -y
+sudo apt install --no-install-recommends wget gpg fzf -y
 
 #Install alacritty
-sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3 -y
+sudo apt install --no-install-recommends cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3 -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
@@ -28,34 +28,36 @@ sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
 sudo mkdir -p /usr/local/share/man/man1
 gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
 echo "source $(pwd)/extra/completions/alacritty.fish" >> .config/fish/config.fish
+cd ..
+rm -rf alacritty
 
 echo "Install fish..."
-sudo apt-add-repository ppa:fish-shell/release-3
-sudo apt-get update
-sudo apt-get install fish
+sudo apt-add-repository ppa:fish-shell/release-3 -y
+sudo apt-get update -y
+sudo apt-get install fish -y
 
 
 echo "Install softwears..."
 #Install vivaldi
-wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
-sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
+wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add - -y
+sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main' -y
 sudo apt update -y
-sudo apt install vivaldi-stable -y
+sudo apt install --no-install-recommends vivaldi-stable -y
 
 #Install VS Code
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/ms-vscode-keyring.gpg
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ms-vscode-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 sudo apt update -y
- sudo apt install code -y
+ sudo apt install --no-install-recommends code -y
 
 #Install Pipewire
 sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
 sudo add-apt-repository ppa:pipewire-debian/wireplumber-upstream -y
 sudo apt update -y
-sudo apt install gstreamer1.0-pipewire libpipewire-0.3-{0,dev,modules} libspa-0.2-{bluetooth,dev,jack,modules} pipewire{,-{audio-client-libraries,pulse,bin,jack,alsa,v4l2,libcamera,locales,tests}} \
+sudo apt install --no-install-recommends gstreamer1.0-pipewire libpipewire-0.3-{0,dev,modules} libspa-0.2-{bluetooth,dev,jack,modules} pipewire{,-{audio-client-libraries,pulse,bin,jack,alsa,v4l2,libcamera,locales,tests}} \
 libpipewire-module-x11-bell \
 wireplumber{,-doc} gir1.2-wp-0.4 libwireplumber-0.4-{0,dev}  -y
-sudo apt install pavucontrol pulseaudio-utils -y
+sudo apt install --no-install-recommends pavucontrol pulseaudio-utils -y
 
 sudo apt autoremove -y
 
