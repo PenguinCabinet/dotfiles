@@ -6,13 +6,34 @@ mkdir ~/Pictures
 sudo apt update -y
 sudo apt upgrade -y
 
-echo "Install Window System..."
+echo "Install awesome(window system)..."
 sudo apt install lightdm awesome -y
-echo "exec awesome" > ~/.xinitrc
-echo "startx" >> ~/.bash_profile
 
 echo "Install basic softwears..."
-sudo apt install wget gpg -y
+sudo apt install wget gpg fzf -y
+
+#Install alacritty
+sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3 -y
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+git clone https://github.com/alacritty/alacritty.git
+cd alacritty
+rustup override set stable
+rustup update stable
+cargo build --release
+sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+sudo cp target/release/alacritty /usr/local/bin
+sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+#sudo desktop-file-install extra/linux/Alacritty.desktop
+#sudo update-desktop-database
+sudo mkdir -p /usr/local/share/man/man1
+gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+echo "source $(pwd)/extra/completions/alacritty.fish" >> .config/fish/config.fish
+
+echo "Install fish..."
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update
+sudo apt-get install fish
+
 
 echo "Install softwears..."
 #Install vivaldi
@@ -55,4 +76,8 @@ for e in ??*; do
 done
 cd ..
 
+chsh -s /usr/bin/fish
+
 echo "Complete!!"
+
+reboot
