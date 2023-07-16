@@ -1,4 +1,7 @@
 
+#Install xterm
+sudo apt install xterm -y
+
 #Install alacritty
 sudo apt install --no-install-recommends cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3 -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
