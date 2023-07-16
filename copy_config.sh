@@ -11,7 +11,7 @@ for e in .??*; do
     ln -s "$(pwd)/$e" "$HOME/$e"
 done
 
-cd config
+cd .config
 for e in ??*; do
     [ "$e" = ".git" ] && continue
     [ "`echo $e | grep '.sh'`" ] && continue
