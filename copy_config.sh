@@ -10,6 +10,7 @@ while read e; do
         continue
     fi
     rm -r "$HOME/$e"
+    echo $(pwd)/$e
     ln -s "$(pwd)/$e" "$HOME/$e"
 done < <(ls -A -1 ./)
 
@@ -20,6 +21,7 @@ while read e; do
         continue
     fi
     rm -r "$HOME/.config/$e"
+    echo $(pwd)/$e
     ln -s "$(pwd)/$e" "$HOME/.config/$e"
 done < <(ls -A -1 ./)
 cd ..
