@@ -270,7 +270,7 @@ globalkeys = gears.table.join(
            tag:view_only()
         end 
     end,
-              {description = "focus the next tag", group = "tag"}),
+              {description = "focus the previous tag", group = "tag"}),
     awful.key({ modkey,}, "Up", function () 
         local screen = awful.screen.focused()
         local t = screen.selected_tag
@@ -281,7 +281,7 @@ globalkeys = gears.table.join(
            tag:view_only()
         end 
     end,
-              {description = "focus the previous tag", group = "tag"}),
+              {description = "focus the next tag", group = "tag"}),
     awful.key({ modkey, "Control" }, "Down", function ()
         local screen = awful.screen.focused()
         local t = screen.selected_tag
@@ -289,10 +289,12 @@ globalkeys = gears.table.join(
         if i == 0 then i = #screen.tags end
         local tag = screen.tags[i]
         if tag then
-            client.focus:move_to_tag(tag)
+            if client.focus then
+                client.focus:move_to_tag(tag)
+            end
         end 
         end,
-                      {description = "focus the next tag", group = "tag"}),
+                      {description = "Move the focused client to the previous tag", group = "tag"}),
     awful.key({ modkey, "Control"}, "Up", function () 
         local screen = awful.screen.focused()
         local t = screen.selected_tag
@@ -300,10 +302,12 @@ globalkeys = gears.table.join(
         if i > #screen.tags then i = 1 end
         local tag = screen.tags[i]
         if tag then
-            client.focus:move_to_tag(tag)
+            if client.focus then
+                client.focus:move_to_tag(tag)
+            end
         end 
         end,
-                      {description = "focus the previous tag", group = "tag"}),
+                      {description = "Move the focused client to the next tag", group = "tag"}),
 
 
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
