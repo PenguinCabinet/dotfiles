@@ -24,7 +24,7 @@ rm -rf alacritty
 
 echo "Install softwears..."
 #Install vivaldi
-wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add - -y
+wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
 sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main' -y
 sudo apt update -y
 sudo apt install --no-install-recommends vivaldi-stable -y
