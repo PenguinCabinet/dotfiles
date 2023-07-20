@@ -30,10 +30,7 @@ sudo apt update -y
 sudo apt install --no-install-recommends vivaldi-stable -y
 
 #Install VS Code
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/ms-vscode-keyring.gpg
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/ms-vscode-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
-sudo apt update -y
- sudo apt install --no-install-recommends code -y
+sudo snap install --classic code -y
 
 #Install Pipewire
 sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
