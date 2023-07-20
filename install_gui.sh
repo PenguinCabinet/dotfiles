@@ -30,7 +30,7 @@ sudo apt update -y
 sudo apt install --no-install-recommends vivaldi-stable -y
 
 #Install VS Code
-sudo snap install --classic code -y
+sudo snap install --classic code
 
 #Install Pipewire
 sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
