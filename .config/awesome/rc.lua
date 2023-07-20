@@ -274,8 +274,8 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+    --awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+    --          {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -563,5 +563,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.key({modkey,}, "r", function() awful.util.spawn('rofi -show drun') end, {description='run rofi', group='launcher'})
+awful.key({modkey,}, "Return", function() awful.util.spawn('rofi -show drun') end, {description='run rofi', group='launcher'})
 
