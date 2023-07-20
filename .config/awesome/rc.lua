@@ -563,5 +563,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.key({modkey}, 'r', function() awful.util.spawn('rofi -show drun') end, {description='run rofi', group='launcher'})
+awful.key({modkey,}, "r", function() awful.util.spawn('rofi -show drun') end, {description='run rofi', group='launcher'})
 
