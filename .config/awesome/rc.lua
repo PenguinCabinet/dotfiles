@@ -261,17 +261,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey, }, "Down", function ()
         local screen = awful.screen.focused()
         local t = screen.selected_tag
-        local i = t.index + 1
-          if i > #screen.tags then i = 1 end
-        local tag = screen.tags[i]
-        if tag then
-           tag:view_only()
-        end 
-    end,
-              {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey,}, "Up", function () 
-        local screen = awful.screen.focused()
-        local t = screen.selected_tag
         local i = t.index - 1
           if i == 0 then i = #screen.tags end
         local tag = screen.tags[i]
@@ -279,7 +268,18 @@ globalkeys = gears.table.join(
            tag:view_only()
         end 
     end,
-              {description = "focus the previous screen", group = "screen"}),
+              {description = "focus the next tag", group = "tag"}),
+    awful.key({ modkey,}, "Up", function () 
+        local screen = awful.screen.focused()
+        local t = screen.selected_tag
+        local i = t.index + 1
+          if i > #screen.tags then i = 1 end
+        local tag = screen.tags[i]
+        if tag then
+           tag:view_only()
+        end 
+    end,
+              {description = "focus the previous tag", group = "tag"}),
 
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
