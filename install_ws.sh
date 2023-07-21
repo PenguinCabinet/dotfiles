@@ -5,3 +5,5 @@ sudo apt install --no-install-recommends fonts-ubuntu fonts-noto-cjk fonts-noto-
 sudo apt install --no-install-recommends language-pack-ja -y
 sudo dpkg-reconfigure lightdm 
 sudo apt install rofi -y
+
+sudo apt install --no-install-recommends fcitx5 fcitx5-mozc
