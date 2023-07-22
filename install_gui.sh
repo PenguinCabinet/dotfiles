@@ -5,6 +5,7 @@ apt install xterm -y
 #Install alacritty
 apt install --no-install-recommends cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3 -y
 curl https://sh.rustup.rs -sSf | sh -s -- -y
+export PATH="$HOME/.cargo/bin:$PATH"
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
 rustup override set stable
