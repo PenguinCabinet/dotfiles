@@ -33,6 +33,9 @@ apt install --no-install-recommends vivaldi-stable -y
 #Install VS Code
 snap install --classic code
 
+#Install VLC
+sudo snap install vlc
+
 #Install Pipewire
 add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
 add-apt-repository ppa:pipewire-debian/wireplumber-upstream -y
