@@ -9,5 +9,6 @@ while read e; do
     if [ "`echo $e | grep '.sh'`" ]; then
         continue
     fi
+    [ "$e" = "TODO.md" ] && continue
     ln -snvf "$(pwd)/$e" "$HOME/$e"
 done < <(ls -A -1 ./)
