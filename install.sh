@@ -11,7 +11,7 @@ bash ./install_gui.sh
 
 apt autoremove -y
 
-chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish $SUDO_USER
 
 bash ./copy_config.sh
 
