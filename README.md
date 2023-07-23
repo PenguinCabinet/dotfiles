@@ -3,7 +3,7 @@ dotfiles of PenguinCabinet.
 
 # How to Install
 
-1. Install (Ubuntu Server 22.04 LTS)[https://ubuntu.com/download/server](minimum)
+1. Install [Ubuntu Server 22.04 LTS](https://ubuntu.com/download/server)(minimum)
 2. Run commands
 ```
 sudo apt install git -y
