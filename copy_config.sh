@@ -9,7 +9,5 @@ while read e; do
     if [ "`echo $e | grep '.sh'`" ]; then
         continue
     fi
-    rm -r "$HOME/$e"
-    echo $(pwd)/$e
     ln -snvf "$(pwd)/$e" "$HOME/$e"
 done < <(ls -A -1 ./)
