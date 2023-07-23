@@ -6,4 +6,5 @@ apt install --no-install-recommends language-pack-ja -y
 dpkg-reconfigure lightdm 
 apt install rofi -y
 
-apt install --no-install-recommends ibus-mozc -y
+apt install fcitx5-mozc -y
+im-config -n fcitx5
