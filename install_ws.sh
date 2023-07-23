@@ -8,3 +8,5 @@ apt install rofi -y
 
 apt install fcitx5-mozc -y
 im-config -n fcitx5
+
+usermod -a -G video $USER
