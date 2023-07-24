@@ -6,8 +6,8 @@ apt install --no-install-recommends language-pack-ja -y
 dpkg-reconfigure lightdm 
 apt install rofi -y
 
-apt install fcitx5-mozc -y
-im-config -n fcitx5
+apt install fcitx-mozc -y
+im-config -n fcitx
 
 usermod -a -G video $SUDO_USER
 usermod -a -G cdrom $SUDO_USER
