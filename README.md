@@ -19,7 +19,7 @@ sudo bash install.sh
 |Window Manager|awesome|
 |Display Manager|LightDM|
 |Launcher|rofi(Theme Arc-Dark)|
-|IME|Ibus-Mozc|
+|IME|fcitx5-Mozc|
 |Sound|PipeWire|
 |Browser|Vivaldi|
 |Terminal|Alacritty|
