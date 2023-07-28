@@ -1,4 +1,5 @@
 - [ ] Ibus-Mozcの未確定の文字列が表示されない問題の修正
+- [ ] Mozcに辞書を入れる
 - [x] awesomeのwibox.widget.textclockのTimezoneがTokyoにならない問題の修正
 - [ ] awesomeのtheme.luaが適用されない問題の修正
 - [ ] awesomeの閉じるボタンを変更
