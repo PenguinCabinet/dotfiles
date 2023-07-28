@@ -39,6 +39,9 @@ snap install vlc
 #Install nautilus
 apt install nautilus -y
 
+#Install xsel
+sudo apt-get install xsel -y
+
 #Install Pipewire
 add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
 add-apt-repository ppa:pipewire-debian/wireplumber-upstream -y
