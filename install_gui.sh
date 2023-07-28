@@ -34,7 +34,10 @@ apt install --no-install-recommends vivaldi-stable -y
 snap install --classic code
 
 #Install VLC
-sudo snap install vlc
+snap install vlc
+
+#Install nautilus
+apt install nautilus -y
 
 #Install Pipewire
 add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
