@@ -29,6 +29,7 @@ wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | apt-key add -
 add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main' -y
 apt update -y
 apt install --no-install-recommends vivaldi-stable -y
+xdg-settings set default-web-browser vivaldi-stable.desktop
 
 #Install VS Code
 snap install --classic code
