@@ -10,5 +10,5 @@ while read e; do
         continue
     fi
     [ "$e" = "TODO.md" ] && continue
-    ln -snvf "$(pwd)/$e" "$HOME/$e"
+    ln -snvf "$(pwd)/$e" "$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)/$e"
 done < <(ls -A -1 ./)
