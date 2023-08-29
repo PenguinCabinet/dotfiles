@@ -1,7 +1,8 @@
+bash ./init_config.sh
+
 apt update -y
 apt upgrade -y
 
-bash ./init_config.sh
 
 bash ./install_cui.sh
 bash ./install_ws.sh
