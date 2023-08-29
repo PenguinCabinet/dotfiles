@@ -7,4 +7,4 @@ set -xg GTK_IM_MODULE fcitx
 set -xg XMODIFIERS @im=fcitx
 set -xg QT_IM_MODULE fcitx
 
-startx
+sway
