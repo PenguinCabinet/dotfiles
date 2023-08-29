@@ -1,7 +1,7 @@
 echo "Make directories..."
-mkdir ~/Downloads
-mkdir ~/Documents
-mkdir ~/Pictures
+mkdir "$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)/Downloads"
+mkdir "$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)/Documents"
+mkdir "$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)/Pictures"
 
 echo "Link config files..."
 while read e; do
