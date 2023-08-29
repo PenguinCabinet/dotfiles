@@ -53,10 +53,10 @@ floating_modifier Mod4
 bindsym Mod4+Return exec alacritty
 
 # kill focused window
-bindsym Mod4+Shift+q kill
+bindsym Mod4+c kill
 
 # start dmenu (a program launcher)
-bindsym Mod4+d exec --no-startup-id dmenu_run
+bindsym Mod4+d exec "rofi -modi drun,run -show drun"
 # A more modern dmenu replacement is rofi:
 # bindsym Mod4+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
