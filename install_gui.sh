@@ -43,6 +43,11 @@ apt install nautilus -y
 #Install xsel
 sudo apt-get install xsel -y
 
+#Install MEGA
+#wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megasync-xUbuntu_22.04_amd64.deb
+#apt install ./megasync-xUbuntu_22.04_amd64.deb -y
+#rm -f ./megasync-xUbuntu_22.04_amd64.deb
+
 #Install Pipewire
 add-apt-repository ppa:pipewire-debian/pipewire-upstream -y
 add-apt-repository ppa:pipewire-debian/wireplumber-upstream -y
