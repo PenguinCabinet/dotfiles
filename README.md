@@ -18,10 +18,10 @@ sudo bash install.sh
 |Default Shell|fish|
 |Window Manager|awesome|
 |Display Manager|LightDM|
-|Launcher|rofi(Theme Arc-Dark)|
+|Launcher|rofi(Theme Catppuccin)|
 |IME|fcitx5-Mozc|
 |Sound|PipeWire|
 |Browser|Vivaldi|
-|Terminal|Alacritty|
+|Terminal|Alacritty(Theme Catppuccin)|
 |Text Editor|Visual Studio Code|
 |Media Player|VLC|
