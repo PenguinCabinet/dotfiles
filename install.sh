@@ -1,3 +1,3 @@
 #!/bin/bash
 
-stow -v vim wezterm bash zsh
+stow -v vim wezterm bash zsh tmux
