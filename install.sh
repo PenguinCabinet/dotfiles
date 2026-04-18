@@ -1,3 +1,3 @@
 #!/bin/bash
 
-stow -v vim wezterm
+stow -v vim wezterm bash
