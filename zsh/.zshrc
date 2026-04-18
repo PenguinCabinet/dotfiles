@@ -39,6 +39,16 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
+# Set up zoxide
+eval "$(zoxide init zsh --cmd cd)"
+
+# cd working_dir when nnn quited
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_sh_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_sh_zsh
+fi
+
+export NNN_SHOW_HIDDEN=1
+
 alias pbcopy="xsel --clipboard"
 
 export PATH="$(go env GOPATH)/bin:$PATH"
