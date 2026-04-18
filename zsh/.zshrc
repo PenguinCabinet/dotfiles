@@ -49,7 +49,8 @@ fi
 
 export NNN_SHOW_HIDDEN=1
 
-alias pbcopy="xsel --clipboard"
+alias pbcopy='xsel --clipboard'
+alias cdghq='cd $(ghq list -p | fzf)'
 
 export PATH="$(go env GOPATH)/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
