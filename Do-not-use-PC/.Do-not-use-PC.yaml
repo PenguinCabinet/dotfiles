@@ -1,0 +1,26 @@
+rules:
+  - 
+    if: 
+      weeks: ["Mon","Tue","Wed","Thu","Fri","Sun"]
+    apply:
+      allowtimes:
+        -
+          start: 
+            hours: 6
+            minutes: 0
+          end: 
+            hours: 23
+            minutes: 0
+  - 
+    if: 
+      weeks: ["Sat"]
+    apply:
+      allowtimes:
+        -
+          start: 
+            hours: 6
+            minutes: 0
+          end: 
+            hours: 23
+            minutes: 0
+
