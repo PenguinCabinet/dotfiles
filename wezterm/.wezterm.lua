@@ -11,6 +11,8 @@ config.keys = {
   },
 }
 
+config.color_scheme = "Catppuccin Latte"
+
 config.use_ime = true
 return config
 
