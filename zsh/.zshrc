@@ -50,6 +50,7 @@ fi
 export NNN_SHOW_HIDDEN=1
 
 alias pbcopy='xsel --clipboard'
+alias pbpaste='xsel -b -o'
 alias cdghq='cd $(ghq list -p | fzf)'
 
 alias rm='trash-put'
