@@ -52,6 +52,8 @@ export NNN_SHOW_HIDDEN=1
 alias pbcopy='xsel --clipboard'
 alias cdghq='cd $(ghq list -p | fzf)'
 
+alias rm='trash-put'
+
 export PATH="$(go env GOPATH)/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
