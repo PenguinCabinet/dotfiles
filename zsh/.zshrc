@@ -49,6 +49,14 @@ fi
 
 export NNN_SHOW_HIDDEN=1
 
+
+pvim(){
+	local tempfile=$(mktemp)
+	cat > "$tempfile"
+	vim "$tempfile"  < /dev/tty > /dev/tty 
+	cat "$tempfile"
+}
+
 alias pbcopy='xsel --clipboard'
 alias pbpaste='xsel -b -o'
 alias cdghq='cd $(ghq list -p | fzf)'
