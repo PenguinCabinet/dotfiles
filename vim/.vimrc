@@ -45,4 +45,6 @@ set statusline+=%{VisualCharCount()}
 nnoremap j gj
 nnoremap k gk
 
+xnoremap <leader>k "zyggVG"_d"zp
+
 command! Erc tabe ~/.vimrc
