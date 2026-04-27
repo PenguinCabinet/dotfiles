@@ -42,8 +42,34 @@ set statusline=%<%f\ %h%m%r%=%{strchars(getline('.'))}文字\ %l:%{CharCol()}
 
 set statusline+=%{VisualCharCount()}
 
+
+" ノーマルモード
+nnoremap <Down> gj
+nnoremap <Up>   gk
 nnoremap j gj
 nnoremap k gk
+
+" ビジュアルモード
+vnoremap <Down> gj
+vnoremap <Up>   gk
+vnoremap j gj
+vnoremap k gk
+
+" オペレータ待機モード（d, y などの後）
+onoremap <Down> gj
+onoremap <Up>   gk
+onoremap j gj
+onoremap k gk
+
+" 挿入モード
+inoremap <Down> <C-o>gj
+inoremap <Up>   <C-o>gk
+inoremap j gj
+inoremap k gk
+
+" コマンドラインモード（/ や : の入力中）
+cnoremap <Down> <Down>
+cnoremap <Up>   <Up>
 
 xnoremap <leader>k "zyggVG"_d"zp
 
