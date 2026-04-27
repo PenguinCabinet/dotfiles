@@ -71,6 +71,9 @@ inoremap k gk
 cnoremap <Down> <Down>
 cnoremap <Up>   <Up>
 
+" vimがclipboardに対応している必要がある。Debianの場合、sudo apt install vim-gtk3を実行すること
+set clipboard=unnamedplus
+
 xnoremap <leader>k "zyggVG"_d"zp
 
 command! Erc tabe ~/.vimrc
