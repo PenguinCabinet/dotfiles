@@ -197,3 +197,8 @@ bar {
     status_command i3blocks -c ~/.config/i3blocks/config
 }
 
+
+
+exec --no-startup-id google-chrome --app="https://calendar.google.com"
+for_window [title="Google Calendar"] move to workspace 9
+
