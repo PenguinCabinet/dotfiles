@@ -63,6 +63,7 @@ pvim(){
 alias pbcopy='xsel --clipboard'
 alias pbpaste='xsel -b -o'
 alias cdghq='cd $(ghq list -p | fzf)'
+alias pbedit='pbpaste|pvim|pbcopy'
 
 alias rm='trash-put'
 
