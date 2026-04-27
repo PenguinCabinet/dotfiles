@@ -9,6 +9,11 @@ config.keys = {
     key = 'F11',
     action = wezterm.action.ToggleFullScreen,
   },
+  {
+    key = 'v',
+    mods = 'CTRL',
+    action = wezterm.action.PasteFrom 'Clipboard',
+  },
 }
 
 config.color_scheme = "Catppuccin Latte"
