@@ -64,8 +64,8 @@ onoremap k gk
 " 挿入モード
 inoremap <Down> <C-o>gj
 inoremap <Up>   <C-o>gk
-inoremap j gj
-inoremap k gk
+inoremap j j
+inoremap k k
 
 " コマンドラインモード（/ や : の入力中）
 cnoremap <Down> <Down>
