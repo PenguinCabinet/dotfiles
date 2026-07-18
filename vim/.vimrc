@@ -77,3 +77,33 @@ set clipboard=unnamedplus
 xnoremap <leader>k "zyggVG"_d"zp
 
 command! Erc tabe ~/.vimrc
+
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'preservim/nerdtree'
+
+call plug#end()
+
+function! ToggleNERDTreeFocus() abort
+  if &filetype ==# 'nerdtree'
+    wincmd p
+  else
+    NERDTreeFocus
+  endif
+endfunction
+
+nnoremap <C-e> :NERDTreeToggle<CR>
+nnoremap <C-b> :call ToggleNERDTreeFocus()<CR>
+
+" 隠しファイルを表示
+let NERDTreeShowHidden = 1
+
+" NERDTree以外のウィンドウがなくなったらVimを終了
+autocmd bufenter *
+      \ if tabpagenr('$') == 1
+      \ && winnr('$') == 1
+      \ && exists('b:NERDTree')
+      \ && b:NERDTree.isTabTree()
+      \ | quit
+      \ | endif
