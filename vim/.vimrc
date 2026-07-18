@@ -96,6 +96,16 @@ endfunction
 nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <C-b> :call ToggleNERDTreeFocus()<CR>
 
+let g:NERDTreeMapCustomOpen = '<CR>'
+let g:NERDTreeCustomOpenArgs = {
+      \ 'file': {
+      \   'where': 't',
+      \   'reuse': '',
+      \   'keepopen': 1
+      \ },
+      \ 'dir': {}
+      \ }
+
 " 隠しファイルを表示
 let NERDTreeShowHidden = 1
 
@@ -107,3 +117,44 @@ autocmd bufenter *
       \ && b:NERDTree.isTabTree()
       \ | quit
       \ | endif
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeWinPos = 'left'
+let g:NERDTreeWinSize = 30
+let g:NERDTreeQuitOnOpen = 0
+
+function! ToggleNERDTreeFocus() abort
+  if &filetype ==# 'nerdtree'
+    wincmd p
+  else
+    NERDTreeFocus
+  endif
+endfunction
+
+nnoremap <silent> <C-n> :call ToggleNERDTreeFocus()<CR>
+
+function! s:MirrorNERDTree(timer) abort
+  if g:NERDTree.ExistsForTab()
+    return
+  endif
+
+  let l:editor = win_getid()
+  silent! NERDTreeMirror
+  call win_gotoid(l:editor)
+endfunction
+
+function! s:ScheduleNERDTreeMirror() abort
+  call timer_start(0, function('<SID>MirrorNERDTree'))
+endfunction
+
+function! s:OpenNERDTree() abort
+  let l:editor = win_getid()
+  silent! NERDTree
+  call win_gotoid(l:editor)
+endfunction
+
+augroup nerdtree
+  autocmd!
+  autocmd VimEnter * call s:OpenNERDTree()
+  autocmd TabEnter * call s:ScheduleNERDTreeMirror()
+augroup END
