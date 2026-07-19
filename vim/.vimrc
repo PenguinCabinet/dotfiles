@@ -109,19 +109,11 @@ let g:NERDTreeCustomOpenArgs = {
 " 隠しファイルを表示
 let NERDTreeShowHidden = 1
 
-" NERDTree以外のウィンドウがなくなったらVimを終了
-autocmd bufenter *
-      \ if tabpagenr('$') == 1
-      \ && winnr('$') == 1
-      \ && exists('b:NERDTree')
-      \ && b:NERDTree.isTabTree()
-      \ | quit
-      \ | endif
-
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos = 'left'
 let g:NERDTreeWinSize = 30
 let g:NERDTreeQuitOnOpen = 0
+
 
 function! ToggleNERDTreeFocus() abort
   if &filetype ==# 'nerdtree'
@@ -131,30 +123,16 @@ function! ToggleNERDTreeFocus() abort
   endif
 endfunction
 
-nnoremap <silent> <C-n> :call ToggleNERDTreeFocus()<CR>
+" NERDTreeと(直前)の画面のフォーカスを切り替える
+nnoremap <silent> <C-b> :call ToggleNERDTreeFocus()<CR>
 
-function! s:MirrorNERDTree(timer) abort
-  if g:NERDTree.ExistsForTab()
-    return
-  endif
-
-  let l:editor = win_getid()
-  silent! NERDTreeMirror
-  call win_gotoid(l:editor)
-endfunction
-
-function! s:ScheduleNERDTreeMirror() abort
-  call timer_start(0, function('<SID>MirrorNERDTree'))
-endfunction
-
-function! s:OpenNERDTree() abort
-  let l:editor = win_getid()
-  silent! NERDTree
-  call win_gotoid(l:editor)
-endfunction
+" NERDTreeのみ残ったタブは自動で閉じる
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 
 augroup nerdtree
   autocmd!
-  autocmd VimEnter * call s:OpenNERDTree()
-  autocmd TabEnter * call s:ScheduleNERDTreeMirror()
+  " NERDTreeを起動しフォーカスをNERDTreeに置く
+  autocmd VimEnter * NERDTree
+  " 新しいタブを開くたびに、既存のNERDTreeを開く
+  autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 augroup END
