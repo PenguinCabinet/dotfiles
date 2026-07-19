@@ -94,6 +94,7 @@ function! ToggleNERDTreeFocus() abort
 endfunction
 
 nnoremap <C-e> :NERDTreeToggle<CR>
+" NERDTreeと(直前)の画面のフォーカスを切り替える
 nnoremap <C-b> :call ToggleNERDTreeFocus()<CR>
 
 let g:NERDTreeMapCustomOpen = '<CR>'
@@ -113,18 +114,6 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinPos = 'left'
 let g:NERDTreeWinSize = 30
 let g:NERDTreeQuitOnOpen = 0
-
-
-function! ToggleNERDTreeFocus() abort
-  if &filetype ==# 'nerdtree'
-    wincmd p
-  else
-    NERDTreeFocus
-  endif
-endfunction
-
-" NERDTreeと(直前)の画面のフォーカスを切り替える
-nnoremap <silent> <C-b> :call ToggleNERDTreeFocus()<CR>
 
 " NERDTreeのみ残ったタブは自動で閉じる
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
